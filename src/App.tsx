@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import {
+  Box,
+  createTheme,
+  CssBaseline,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
+import { Theme } from "@mui/system";
 
-function App() {
+const App = () => {
+  const theme: Theme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#e91e63",
+      },
+      secondary: {
+        main: "#8e24aa",
+      },
+      background: {
+        default: "#0a1929",
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ width: "100%", height: "100%" }}>
+        <Typography variant="h4">Welcome to Kubergames!</Typography>
+      </Box>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
